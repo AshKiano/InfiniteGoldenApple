@@ -1,0 +1,10 @@
+name: InfiniteGoldenApple
+version: '${project.version}'
+main: com.ashkiano.infinitegoldenapple.InfiniteGoldenApple
+api-version: '1.16'
+author: AshKiano
+description: Plugin providing an InfiniteGoldenApple.
+commands:
+  infinitegoldenapple:
+    description: Gives the player an InfiniteGoldenApple.
+    usage: /<command>
