@@ -24,6 +24,8 @@ public class InfiniteGoldenApple extends JavaPlugin implements Listener {
         this.getCommand("infinitegoldenapple").setExecutor(new GoldenAppleCommand());
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
 
+        Metrics metrics = new Metrics(this, 19957);
+
     }
 
     public class GoldenAppleCommand implements CommandExecutor {
