@@ -26,6 +26,7 @@ public class InfiniteGoldenApple extends JavaPlugin implements Listener {
 
         Metrics metrics = new Metrics(this, 19957);
 
+        this.getLogger().info("Thank you for using the InfiniteGoldenApple plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
     }
 
     public class GoldenAppleCommand implements CommandExecutor {
