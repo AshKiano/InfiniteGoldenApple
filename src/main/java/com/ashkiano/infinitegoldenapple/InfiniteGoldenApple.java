@@ -24,6 +24,12 @@ public class InfiniteGoldenApple extends JavaPlugin implements Listener {
         this.getCommand("infinitegoldenapple").setExecutor(new GoldenAppleCommand());
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
 
+        this.saveDefaultConfig();
+        if (!getConfig().isSet("permission")) {
+            getConfig().set("permission", "infinitegoldenapple.use");
+            saveConfig();
+        }
+
         Metrics metrics = new Metrics(this, 19957);
 
         this.getLogger().info("Thank you for using the InfiniteGoldenApple plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
@@ -34,6 +40,13 @@ public class InfiniteGoldenApple extends JavaPlugin implements Listener {
         public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
+
+                String permission = InfiniteGoldenApple.this.getConfig().getString("permission");
+
+                if (!player.hasPermission(permission)) {
+                    player.sendMessage("You do not have permission to use this command.");
+                    return true;
+                }
 
                 ItemStack apple = new ItemStack(Material.GOLDEN_APPLE);
                 ItemMeta meta = apple.getItemMeta();
